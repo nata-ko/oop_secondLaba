@@ -49,16 +49,5 @@ namespace Lab1
                 opponent.WinGame(user, game);
             }
         }
-
-
-
-
-
-
-
-
-
-
-
     }
 }
