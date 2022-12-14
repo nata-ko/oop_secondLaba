@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +21,7 @@ namespace Lab1
         {
             GameIdStr = GameId.ToString();
             GameId++;
-            GameRating = new Random().Next(1, 20);
+            GameRating = GameRatingDefine();
             TwoGamers = true;
             ZeroGameRating= 0;
 
@@ -30,11 +30,11 @@ namespace Lab1
         // game's rating define
         public virtual int GameRatingDefine()
         {
-            return GameRating;
+            return new Random().Next(1, 20);
         }
 
 
-        // try to create method for PlayGame
+        // to create method for PlayGame
         public virtual void PlayGame(GameAccount user, GameAccount opponent, BaseGame game)
         {
             int dice = new Random().Next(1, 6);
@@ -49,5 +49,6 @@ namespace Lab1
                 opponent.WinGame(user, game);
             }
         }
+
     }
 }
