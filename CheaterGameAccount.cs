@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,16 +11,16 @@ namespace Lab1
 
         public CheaterGameAccount(string name) : base(name)
         {
-            isCheater = true;
+            IsCheater = true;
         }
 
        
 
         public override void LooseGame(GameAccount opponent, BaseGame game)
         {
-            GetExeption(CheckRating(this, game.GameRatingDefine()), this);
-            this.CurrentRating = (CheckRating(this, game.GameRatingDefine() / 2)) ? this.CurrentRating - (game.GameRatingDefine() / 2) : 1;
-            PlayedGameResult(this, opponent, game, GameResultStatus.loose, isVip, isCheater);
+            GetExeption(CheckRating(game.GameRating));
+            this.CurrentRating -= game.GameRating / 2;
+            PlayedGameResult(this, opponent, game, GameResultStatus.loose, IsVip, IsCheater);
         }
     }
 }
