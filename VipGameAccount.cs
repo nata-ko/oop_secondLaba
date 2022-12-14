@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,19 +19,18 @@ namespace Lab1
         // change Game -> Base Game
         public override void WinGame(GameAccount opponent, BaseGame game)
         {
-            if(this.CurrentRating - beforeChangesRating > game.GameRating)
+            if(CurrentRating - beforeChangesRating > game.GameRating)
             {
-                this.CurrentRating += game.GameRatingDefine() * 2;
-                isVip = true;  
+                CurrentRating += game.GameRatingDefine() * 2;
+                IsVip = true;  
             }
             else
             {
-                this.CurrentRating += game.GameRatingDefine();
-                isVip = false;
+                CurrentRating += game.GameRatingDefine();
+                IsVip = false;
             }
             
-            opponent.CurrentRating = (CheckRating(opponent, game.GameRatingDefine())) ? opponent.CurrentRating - (game.GameRatingDefine()) : 1;
-            PlayedGameResult(this, opponent, game, GameResultStatus.win, isVip, isCheater);
+            PlayedGameResult(this, opponent, game, GameResultStatus.win, IsVip, IsCheater);
         }
 
 
@@ -40,7 +39,7 @@ namespace Lab1
         {
             base.LooseGame(opponent, game);
             // remember user's rating if he failed 
-            beforeChangesRating = this.CurrentRating;
+            beforeChangesRating = CurrentRating;
         }
 
 
